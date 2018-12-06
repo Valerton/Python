@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Lab3</title>
+    <style>
+ p{
+  margin-left: 6px;
+  color: #563a00;
+ }
+    .div1{
+    width: 40%;
+    height: 200px;
+    float: left;
+    border: 1px solid green;
+    border-color: #b99d61;
+}
+.div2{
+    width: 60%;
+    height: 200px;
+    margin-left: 40%;
+}
+.div2 img{
+   height: 200px;
+   width:100%;
+}
+.footer{
+    clear: left;
+    padding-bottom: 20px;
+    min-height: 50px;
+}
+    h1{
+      margin-left: 100px;
+    }
+    table {
+    border: 1px solid green; /* Рамка вокруг таблицы */
+    margin-left: 100px; /* Выравниваем таблицу по центру окна  */
+   }
+   td {
+    text-align: center; /* Выравниваем текст по центру ячейки */
+   }
+    article {
+    margin-bottom: 20px;
+    max-width: 900px;
+    border: 1px solid green;
+    border-color: #b99d61;
+    margin-left: 100px; /* Выравниваем таблицу по центру окна  */
+   }
+#div1{
+ position:absolute;
+ top:50;
+ right:0;
+ width:50px;
+}
+#div11{
+ position:absolute;
+ margin-top: 5px;
+ top:50;
+ right:0;
+ width:150px;
+}
+* {box-sizing: border-box; margin: 0;}
+.widget {
+  margin-right: 50px;
+  position: fixed; /* Фиксированное положение */
+  right: 10px; /* Расстояние от правого края окна браузера */
+  top: 10%; /* Расстояние сверху */
+  padding: 10px; /* Поля вокруг текста */
+  background: white;
+  font-family: 'Calibri', sans-serif;
+  background-color: #f0fffb
+}
+.widget-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #222;
+  font-size: 16px;
+  padding-left: 25px;
+  margin-bottom: 15px;
+  border-left: 2px solid #b99d61;
+}
+.widget-list {
+  padding: 0;
+  list-style: none;
+}
+.widget-list a {
+  text-decoration: none;
+  outline: none;
+  display: block;
+  padding: 6px 0;
+  letter-spacing: 1px;
+  font-weight: 300;
+  color: #444;
+  transition: .3s linear;
+}
+.widget-list a:hover {color: #ffffff;}
+.widget-list a{
+  color: #563a00;
+}
+nav {
+    background-color: #f0fffb;
+    border-color: #E7E7E7;
+    height: 40px;
+}
+  </style>
+  </head>
+  <body style="background-color: #f0fffb">
+    <nav class="navbar navbar-expand-lg navbar-yellow">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="raz" id = "div11">
+         <a href="profile"><p  style="font-size:24px; color:#e8cf9b"><ins> {{ user.username }}</ins></p></a></div>
+  </div>
+</nav>
+<body>
+    <h1 style="color: #563a00">Каталог</h1>
+    <div class="widget">
+  <h3 class="widget-title" style="font-size:30px"></h3>
+  <ul class="widget-list">
+    <li><a style="font-size:24px" href="myevents">Мої броні</a></li>
+    <hr>
+    <li><a style="font-size:24px" href="createEvent">Cтворити власний каталог</a></li>
+    <hr>
+    <li><a style="font-size:24px" href="">Пошук авто</a></li>
+  </ul>
+</div>
+        {% for event in events %}
+        <article>
+      <header>
+        <div class="div1">
+        <p>Марка: BMV </p>
+        <p>Модель: X5</p>
+        <p>Місто: Lviv</p>
+        <p>Добавив: admin</p>
+        <!--<p>Добавлено: {{ event.updated_at }}</p> -->
+      </div>
+      </header>
+      <div class="div2">
+        <img src="{{ event.img }}">
+      </div>
+      <div class="footer">
+     <p>Деталі за телефоном: +(032)99-88-77 </p>
+    <!-- <p>{{ event.description }} </p> -->
+     <!--
+           <a href="/edit/{{ song.id }}"><i class="fa fa-edit" style="font-size:24px; color:#ffc107"></i></center></a>
+     <a href="/delete/{{ song.id }}"><i class="fa fa-times" style="font-size:24px; color:#ffc107"></i></center></a>
+         {% if user.is_authenticated %}
+       <h1>Hello,{{ user.username }})</h1>
+{% else %}
+  <h1>You are not logged in</h1>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+<div class="raz" id = "div1">
+        <a href="{% url 'logout' %}"><i class="fa fa-power-off" style="font-size:24px; color:#ffc107"></i></a></div>
+   -->
+   </div>
+    </article>
+     {% endfor %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

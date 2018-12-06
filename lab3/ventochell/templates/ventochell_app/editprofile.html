@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	      <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<title>Редагувати профіль</title>
+	<style>
+	   body{
+    background-color: #fffffc; /* Цвет фона веб-страницы */
+   }
+     h1 {
+    color: #ffc127;
+}
+  label {
+    color: #ffc127;
+    font-size: 30px;
+}
+</style>
+</head>
+<body>
+	<h1>Редагувати профіль</h1>
+	<form action="/updateprofile/{{ profile.id }}" method="post">
+{% csrf_token %}
+<br><label for="name">Марка: <input type="text" name="name" id="name"
+	value="{{ profile.name }}" placeholder="{{ profile.name }}" /></label></br>
+<br><label  for="surname">Модель: <input type="text" name="surname"
+	value="{{ profile.surname }}" placeholder="{{ profile.surname }}" /></label></br>
+  <br><label  for="location">Місто: <input type="text" name="location"
+  value="{{ profile.location }}" placeholder="{{ profile.location }}" /></label></br>
+  <br><label  for="age">Вік авто: <input type="text" name="age"
+  value="{{ profile.age }}" placeholder="{{ profile.age }}" /></label></br>
+  <br><label  for="img">Зображення авто: <input type="text" name="img"
+  value="{{ profile.img }}" placeholder="{{ profile.img }}" /></label></br>
+  <br><label  for="hobbies">Коментар: <input type="text" name="hobbies"
+  value="{{ profile.hobbies }}" placeholder="{{ profile.hobbies }}" /></label></br>
+	<br><button class="btn btn-outline-warning" type="submit" value="Update" >Оновити</button></br>
+	</form>
+</body>
+</html>
